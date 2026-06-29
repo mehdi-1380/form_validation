@@ -86,4 +86,8 @@ footer button {
 footer button:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
+}
+
+.error {
+  color: red;
 }/*# sourceMappingURL=form.css.map */
