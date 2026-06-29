@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/form.css">
+    <script src="/js/form.js" defer></script>
 </head>
 <body>
-    
+    <section>
+        <form action="" id="for">
+        <header>
+            <p>فرم عضویت</p>
+        </header>
+        <main>
+            <div>
+                <label for="name">نام</label>
+                <input type="text" id="name" onblur="valid(event)" placeholder="نام حود را وارد کنید">
+                <span></span>
+            </div>
+            <div>
+                <label for="last_name">نام خانوادگی</label>
+                <input type="text" id="last_name" data-bs-valid="emphty" onblur="valid(event)" placeholder="نام حانوادکی خود را وارد کنید">
+                <span></span>
+            </div>
+            <div>
+                <label for="phone">شماره تماس</label>
+                <input type="text" id="phone " data-bs-valid="emphty,number" onblur="valid(event)" placeholder="شماره تماس خود را وارد کنید">
+                <span></span>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <button type="submit" for="form">ارسال</button>
+            </div>
+        </footer>
+        </form>
+    </section>
 </body>
 </html>
