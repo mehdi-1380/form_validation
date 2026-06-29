@@ -1,4 +1,4 @@
-function valid(event){
+function validation(event){
 
     let input = event.target;
 
@@ -10,35 +10,62 @@ function valid(event){
 
     for(let item of rules){
        switch (item){
-        case 'emphty' : if(input.value == ''){
-            validation(span,input);
+        case 'empty' : empty(span,input);
             break;
-        }
-        case 'number' : if(isNaN(input.value)){
-            number(span,input);
+         case 'email' : if(input.value != ''){emailcheck(span,input)};
+        break ;
+        case 'number' : number(span,input);
             break;
-        }
-       }
+
+       
+       
+    }
+
+}
+
+function emailcheck(span,input){
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+    if(!(emailRegex.test(input.value))){
+        invalid(span,"لطفا ایمیل را درست وارد کنید");
+    }else if(input.value != '' && emailRegex.test(input.value)){
+        valid(span);
     }
 
 }
 
 
 
-
-function validation(span,input){
+function empty(span,input){
 
     if(input.value == ''){
-    span.innerHTML = 'لطغا فیلد را پر کنید';
+        invalid(span,"لطفا فیلد را پر کنید");
     }else if(input.value != ''){
-        span.innerHTML = '';
+        valid(span);
     }
 }
+}
+
+function valid(span){
+    span.innerHTML = '' ;
+}
+
+function invalid(span,msg){
+    span.innerHTML = msg;
+    span.style.color = "red";
+}
+
+
+
+
+
+
+
 
 function number(span,input){
     if(isNaN(input.value)){
-        span.innerHTML = 'لطغا عدد وارد کنید';
-    }else if(!isNaN(input.value)){
-        span.innerHTML = '';
+        invalid(span,"لطفا عدد وارد کنید");
+    }else if(span.value != '' && !isNaN(span.value)){
+        valid(span);
     }
 }
